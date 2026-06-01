@@ -6,7 +6,7 @@
     "module": "ESNext",
     "moduleDetection": "force",
     "allowJs": true,
-    "types": ["bun"],
+    "types": ["node"],
 
     // Bundler mode
     "moduleResolution": "bundler",
