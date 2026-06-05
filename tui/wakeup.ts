@@ -1,10 +1,10 @@
 import { select, isCancel } from "@clack/prompts";
 import chalk from "chalk";
 import figlet from "figlet";
+import { runCliMode } from "../modes/cli";
 
 const BANNER_FONT = "ANSI Shadow"; 
 
-const SHADOW = chalk.hex('#5b4d9e');
 const FACE = chalk.hex('#e8dcf8').bold;
 
 function printBannerWithShadow(ascii: string): void {
@@ -13,19 +13,8 @@ function printBannerWithShadow(ascii: string): void {
     const rowWidth = maxLen + 2;
 
     for (const line of bannerLines) {
-        console.log(SHADOW((" " + line + " ").padEnd(rowWidth)));
-    }
-
-    process.stdout.write(`\x1b[${bannerLines.length}A`);
-
-    for (const line of bannerLines) {
         console.log(FACE((" " + line + " ").padEnd(rowWidth)));
     }
-}
-
-async function runCliMode(): Promise<void> {
-    console.log(chalk.cyan("\nStarting in CLI mode..."));
-    // TODO: implement CLI mode logic here
 }
 
 async function runTelegramMode(): Promise<void> {

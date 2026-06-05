@@ -6,15 +6,8 @@ import { ToolExecutor } from "./tool-executor";
 import { createAgentTools } from "./agent-tools";
 import { stepCountIs, ToolLoopAgent } from "ai";
 import { getAgentModel } from "../../ai";
-
-// TODO: Import these from their proper locations
-function renderTerminalMarkdown(text: string): string {
-  return text;
-}
-
-async function runApprovalFlow(tracker: ActionTracker): Promise<boolean> {
-  return true;
-}
+import { renderTerminalMarkdown } from "../../tui/terminal-md";
+import { runApprovalFlow } from "./approval";
 
 export async function runAgentMode() {
   console.log(chalk.bold("\n🤖 Agent Mode\n"));
@@ -70,5 +63,5 @@ export async function runAgentMode() {
    console.log(chalk.green('\n✓ Applied.\n'));
   }
 
-  executor.clearStaging();
+  executor.clearStaging()
 }

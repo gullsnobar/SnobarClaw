@@ -15,23 +15,18 @@ export async function runCliMode(){
             ],
         });
 
-        if(isCancel(mode) || mode === "back")
+        if(isCancel(mode) || mode === "back") {
             return;
-        {
-            if(mode === "agent"){
-                await runAgentMode();
-            }
-            if(mode === "ask"){
-                console.log("Ask Mode selected.")
-            }
-            if(mode === "plan"){
-                console.log("Plan Mode selected.")
-            }
+        }
 
-            if(mode !== 'agent' && mode !== 'plan' && mode !== 'ask'){
-             console.log(chalk.red("\nInvalid mode selected. Please try again.\n"))
-            }
-            
+        if(mode === "agent"){
+            await runAgentMode();
+        } else if(mode === "ask"){
+            console.log("Ask Mode selected.")
+        } else if(mode === "plan"){
+            console.log("Plan Mode selected.")
+        } else {
+            console.log(chalk.red("\nInvalid mode selected. Please try again.\n"))
         }
     }
 }
